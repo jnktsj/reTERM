@@ -82,8 +82,9 @@ def reTERM(obo_file, term_ic_file, term_list_file, sim_cutoff, freq_cutoff):
     for term_id in terms:
         if term_id in grave:
             continue
-        heads = str(len(winner.get(term_id, set())))
-        print "\t".join([term_id, heads, str(term_p[term_id])])
+        heads = winner.get(term_id, set())
+        head_num = str(len(heads))
+        print "\t".join([term_id, str(term_p[term_id]), head_num, ",".join(heads)])
 
 
 if __name__ == "__main__":
